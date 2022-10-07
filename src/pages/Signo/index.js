@@ -30,10 +30,10 @@ export default function Signo() {
 
     return(
         <main>
-            Açaí
+            signo
 
             <div>
-                mês  <input  value={mes} onChange={e => setMes(String(e.target.value))}/>
+                mês  <input type='text' value={mes} onChange={e => setMes(String(e.target.value))}/>
             </div>
 
             

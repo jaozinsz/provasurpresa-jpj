@@ -4,19 +4,26 @@ import './index.scss'
 import { useNavigate } from "react-router-dom";
 
 export default function Acai() {
-    const [qtdPeq, setQtdPeq] = useState('')
-    const [ qtdMed, setQtdMed] = useState('')
-    const [qtdGrande, setQtdGrande] = useState('')
+    const [qtdPeq, setQtdPeq] = useState(0)
+    const [ qtdMed, setQtdMed] = useState(0)
+    const [qtdGrande, setQtdGrande] = useState(0)
 
-    const [desc, setDesc] = useState('')
-    const [total, setTotal] = useState('')
+    const [desc, setDesc] = useState(0)
+    const [total, setTotal] = useState(0)
 
     function Calcular() {
-        let total = qtdPeq * 13.50 + qtdMed * 15 + qtdGrande * 17.50;
+        if(qtdPeq >= 0 && qtdMed >= 0 && qtdGrande >= 0 && desc >=0){
+        let total = qtdPeq * 13.50 + qtdMed * 15 + (qtdGrande * 17.50);
         let desconto = total * desc / 100;
 
         let final = total - desconto;
-        setTotal(final)
+        setTotal(final)}
+
+
+        
+        else{
+            setTotal('invaaliddoooo')
+        }
     }
 
     useEffect(() => {
@@ -25,27 +32,27 @@ export default function Acai() {
     const navigate = useNavigate();
 
     return(
-        <main>
+        <main className="page-acai">
             Açaí
 
             <div>
-                Quantidade Pequena: <input type='number' value={qtdPeq} onChange={e => setQtdPeq(Number(e.target.value))}/>
+            <label>Quantidade Pequena:</label>  <input className="cx1" type='number' value={qtdPeq} onChange={e => setQtdPeq(Number(e.target.value))}/>
             </div>
 
             
             <div>
-                Quantidade Média: <input type='number' value={qtdMed} onChange={e => setQtdMed
+            <label>Quantidade Média:</label> <input className="cx2" type='number' value={qtdMed} onChange={e => setQtdMed
                     (Number(e.target.value))}/>
             </div>
 
             
             <div>
-                Quantidade Grande: <input type='number' value={qtdGrande} onChange={e => setQtdGrande(Number(e.target.value))}/>
+            <label>Quantidade Grande:</label><input className="cx3" type='number' value={qtdGrande} onChange={e => setQtdGrande(Number(e.target.value))}/>
             </div>
 
             
             <div>
-                Desconto: <input type='number' value={desc} onChange={e => setDesc(Number(e.target.value))}/>
+            <label>Desconto:</label><input className="cx4" type='number' value={desc} onChange={e => setDesc(Number(e.target.value))}/>
             </div>
 
             <div>

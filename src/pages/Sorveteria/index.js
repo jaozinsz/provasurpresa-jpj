@@ -5,24 +5,24 @@ import { useNavigate } from "react-router-dom";
 
 export default function Sorveteria() {
     const navigate = useNavigate();
-    const [gramas, setGramas] = useState('')
-    const [ final, setFinal] = useState('')
+    const [gramas, setGramas] = useState()
+    const [ final, setFinal] = useState()
    
 
     function Calcular() {
-        let total = 0
+        let total = ''
         
        if( gramas <= 0){
         alert('peso invalido')
 
        }
         if (gramas > 1000) {
-            total = (gramas) * 0.3
+            total = (gramas) * 0.03
         }
         else{
-            total = (gramas/10) * 0.35
+            total = (gramas) * 0.035
         }
-    setFinal(total)
+    setFinal(total.toFixed([2]))
     }
 
     useEffect(() => {
