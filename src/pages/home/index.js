@@ -58,7 +58,7 @@ export default function Index() {
 
                             }
                         }}>
-                        Joguinho Boku no pico
+                        Calcular Sorvete
                     </button>
                 </div>
 
