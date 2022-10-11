@@ -12,18 +12,24 @@ export default function SalarioLiquido() {
 
 
     function CalcularSalario() {
-        if (salario >= 0 && bonus >= 0 && desc >= 0) {
-           
-            let total = salario + bonus;
-            let desconto = total * desc / 100;
-
-            let final = total - desconto;
-            setTotal(final)
+        
+        try{
+            if (salario >= 0 && bonus >= 0 && desc >= 0) {
+            
+                let Bonus = salario / bonus;
+                let total = salario + Bonus;
+                let desconto = total - desc;
+                
+                setTotal(desconto.toFixed(1))
+            }
+            else {
+                setTotal('invalidoo')
+            }
         }
-
-        else {
-            setTotal('invalidoo')
+        catch(err) {
+            return (err.message)
         }
+        
     }
 
 
@@ -42,7 +48,7 @@ export default function SalarioLiquido() {
             </div>
 
             <div>
-            <label>Bônus</label>
+            <label>Bônus em porcentagem</label>
             <input type="number" value={bonus} onChange={e => setBonus(Number(e.target.value))}/>
             </div>
 
