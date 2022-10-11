@@ -3,6 +3,7 @@ import Home from './pages/home'
 import VendaAcai from './pages/VendaAcai'
 import Sorveteria from './pages/Sorveteria'
 import Signo from './pages/Signo'
+import SalarioLiquido from './pages/SalarioLiquido'
 
 export default function Index() {
     return (
@@ -12,6 +13,7 @@ export default function Index() {
                 <Route path='/VendaAcai' element={<VendaAcai/>}></Route>
                 <Route path='/Sorveteria' element={<Sorveteria/>}></Route>
                 <Route path='/Signo' element={<Signo/>}></Route>
+                <Route path='/SalarioLiquido' element={<SalarioLiquido/>}></Route>
             </Routes>
         
         </BrowserRouter>

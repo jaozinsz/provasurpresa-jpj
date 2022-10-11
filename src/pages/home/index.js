@@ -61,6 +61,23 @@ export default function Index(){
           Joguinho Boku no pico
         </button>
     </div>
+
+    
+        
+            <div className="div-btn-salario">
+        <button
+            className="btn-simple-salario"
+            onClick={async () => {
+                try {
+                    navigate("/SalarioLiquido")
+                } catch (err) {
+                    
+                }
+            }}>
+            Seu Salario Liquidio 
+        </button>
+    </div>
+    
     
 
     </section>
