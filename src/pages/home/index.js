@@ -61,6 +61,8 @@ export default function Index() {
                         Calcular Sorvete
                     </button>
                 </div>
+<<<<<<< HEAD
+=======
 
 
 
@@ -125,13 +127,68 @@ export default function Index() {
 
 
 
+>>>>>>> d4bdf5073a4afb4e1f3a98bcb85c87081b8f246d
             </section>
 
 
+            <div className="div-btn-salario">
+                <button
+                    className="btn-simple-salario"
+                    onClick={async () => {
+                        try {
+                            navigate("/SalarioLiquido")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    Seu Salario Liquido
+                </button>
+            </div>
+
+            <div className="div-btn-salario">
+                <button
+                    className="btn-simple-salario"
+                    onClick={async () => {
+                        try {
+                            navigate("/Combustivel")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    Calcular Combustivel
+                </button>
+            </div>
 
 
+            
+            <div className="div-btn-sorv">
+                <button
+                    className="btn-simple-sorv"
+                    onClick={async () => {
+                        try {
+                            navigate("/Temperatura")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    tá com febre?
+                </button>
+            </div>
 
 
+            <div className="div-btn-sorv">
+                <button
+                    className="btn-simple-sorv"
+                    onClick={async () => {
+                        try {
+                            navigate("/orcamento")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    Orçamento Familiar
+                </button>
+            </div>
         </main>
 
     );
