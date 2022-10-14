@@ -109,6 +109,21 @@ export default function Index() {
                 </div>
 
 
+                <div className="div-btn-sorv">
+                    <button
+                        className="btn-simple-sorv"
+                        onClick={async () => {
+                            try {
+                                navigate("/Ingresso")
+                            } catch (err) {
+
+                            }
+                        }}>
+                        Calcular ingresso
+                    </button>
+                </div>
+
+
 
             </section>
 

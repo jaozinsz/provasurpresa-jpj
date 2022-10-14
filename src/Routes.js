@@ -6,6 +6,7 @@ import Signo from './pages/Signo'
 import SalarioLiquido from './pages/SalarioLiquido'
 import Combustivel from './pages/Combustivel'
 import Temperatura from './pages/febre'
+import CalcularIngresso from './pages/ingresso'
 
 export default function Index() {
     return (
@@ -18,8 +19,7 @@ export default function Index() {
                 <Route path='/SalarioLiquido' element={<SalarioLiquido/>}></Route>
                 <Route path='/Combustivel' element={<Combustivel/>}></Route>
                 <Route path='/Temperatura' element={<Temperatura/>}></Route>
-
-                
+                <Route path='/Ingresso' element={<CalcularIngresso/>}></Route>
 
             </Routes>
         
