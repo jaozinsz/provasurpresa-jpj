@@ -6,11 +6,13 @@ import Signo from './pages/Signo'
 import SalarioLiquido from './pages/SalarioLiquido'
 import Combustivel from './pages/Combustivel'
 import Temperatura from './pages/febre'
+import Orcamento from './pages/orcamento'
 
 export default function Index() {
     return (
         <BrowserRouter>
             <Routes>
+
                 <Route path='/' element={<Home/>}></Route>
                 <Route path='/VendaAcai' element={<VendaAcai/>}></Route>
                 <Route path='/Sorveteria' element={<Sorveteria/>}></Route>
@@ -18,9 +20,8 @@ export default function Index() {
                 <Route path='/SalarioLiquido' element={<SalarioLiquido/>}></Route>
                 <Route path='/Combustivel' element={<Combustivel/>}></Route>
                 <Route path='/Temperatura' element={<Temperatura/>}></Route>
-
+                <Route path='/orcamento' element={<Orcamento/>}></Route>
                 
-
             </Routes>
         
         </BrowserRouter>
