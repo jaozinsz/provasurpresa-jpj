@@ -2,32 +2,30 @@ import React from "react";
 import { useState, useEffect } from "react";
 import './index.scss'
 import { useNavigate } from "react-router-dom";
+import { CalcularAcai } from '../../services';
+
 
 export default function Acai() {
     const [qtdPeq, setQtdPeq] = useState(0)
-    const [ qtdMed, setQtdMed] = useState(0)
+    const [qtdMed, setQtdMed] = useState(0)
     const [qtdGrande, setQtdGrande] = useState(0)
 
     const [desc, setDesc] = useState(0)
     const [total, setTotal] = useState(0)
 
-    function Calcular() {
-        if(qtdPeq >= 0 && qtdMed >= 0 && qtdGrande >= 0 && desc >=0){
-        let total = qtdPeq * 13.50 + qtdMed * 15 + (qtdGrande * 17.50);
-        let desconto = total * desc / 100;
-
-        let final = total - desconto;
-        setTotal(final)}
-
-
-        
-        else{
-            setTotal('invaaliddoooo')
+    function Acaii(){
+        try {
+            const resposta = CalcularAcai(qtdPeq, qtdMed, qtdGrande, desc)
+            setTotal(resposta);
+    
+        } catch (err) {
+            return (err.message);
         }
     }
+    
 
     useEffect(() => {
-        Calcular()
+        Acaii()
     }, [qtdPeq, qtdMed, qtdGrande, desc])
     const navigate = useNavigate();
 

@@ -1,35 +1,23 @@
 import { useState, useEffect } from "react";
 import './index.scss'
 import { useNavigate } from "react-router-dom";
+import { CalculoOrcamento } from "../../services";
 
 
 export default function Orcamento() {
     
-    const [ganhos, setGanhos] = useState(0);
-    const [gastos, setGastos] = useState(0);
+    const [ganhos, setGanhos] = useState();
+    const [gastos, setGastos] = useState();
 
     const [total, setTotal] = useState("");
     
 
     function Orcamento() {
-        try{
-            var gastosPorcento = gastos / ganhos * 100;
-
-            var msg = "";
-
-            if(gastosPorcento < 30)
-                msg = "Parabéns, está gerenciando vem seu orçamento!";
-            if(gastosPorcento < 50)
-                msg = "Muito bem, seus gastos não ultrapassam metade dos ganhos!";
-            if(gastosPorcento < 81)
-                msg = "Atenção, melhor conter os gastos!";
-            if(gastosPorcento <= 100)
-                msg = "Cuidado, seu orçamento pode ficar comprometido!";
-            else
-                msg = "Orçamento comprometido! Hora de rever seus gastos!";
-            
-            setTotal(msg);
-        } catch (err){
+        try {
+            const resposta = CalculoOrcamento(gastos, ganhos)
+            setTotal(resposta);
+    
+        } catch (err) {
             return (err.message);
         }
     }

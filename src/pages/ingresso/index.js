@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import { useNavigate } from 'react-router';
 import './index.scss'
+import { Ingresso } from '../../services';
 
 export default function CalcularIngresso(){
 
@@ -13,38 +14,28 @@ export default function CalcularIngresso(){
 
     function ingresso(){
        try {
-        let msg = ''
-        if(dia == "quarta-feira") {
-            setTotal = (meia + inteira) * (28.5/2);
-            msg = "O total a se pagar vai ser R$" + total;
-        }
+        const resposta = Ingresso(dia, meia, inteira, nacional)
+        setTotal(resposta);
 
-        else if (nacional == true) {
-            setTotal = (meia + inteira) * 5;
-            msg = "O total a se pagar vai ser R$" + total;
-
-        }
-
-        else {
-            setTotal = (inteira * 28.5) + (meia * 28.5 / 2);
-            msg = "O total a se pagar vai ser R$" + total;
-
-        }
-
-        setTotal(msg)
        } catch (err) {
-
+            return (err.message);
        }
     }
 
     useEffect(() =>{
         ingresso()
-    }, [meia, inteira, dia, nacional])
+    }, [dia, meia, inteira, nacional])
     const navigate = useNavigate();
 
     return (
         <main>
             Calcular ingresso
+
+            <div>
+                <label>dia</label>
+                <input type="text" value={dia} onChange={e => setDia(String(e.target.value))} />
+            </div>
+
             <div>
                 <label>meia</label>
                 <input type="number" value={meia} onChange={e => setMeia(Number(e.target.value))} />
@@ -56,13 +47,8 @@ export default function CalcularIngresso(){
             </div>
 
             <div>
-                <label>dia</label>
-                <input type="text" value={dia} onChange={e => setDia(String(e.target.value))} />
-            </div>
-
-            <div>
                 <label>nacional</label>
-                <input type="checkbox" checked={nacional} onChange={e => setNacional(Number(e.target.checked))} />
+                <input type="checkbox" min={0} value={nacional} onChange={e => setNacional(e.target.checked)} />
             </div>
 
             <div>

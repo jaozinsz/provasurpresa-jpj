@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import { useNavigate } from 'react-router';
 import './index.scss'
+import { Abastecimento } from '../../services';
 
 export default function Combustivel() {
 
@@ -13,20 +14,11 @@ export default function Combustivel() {
 
     function CalcularParadas() {
         try {
-            let litros = dist / consumo;
-            let qtdParadas = litros / capac;
-
-            qtdParadas = Math.ceil(qtdParadas);
-
-            let msg = "Você precisa fazer " + qtdParadas + " paradas para abastecer."
-            if (capac <= 0 || consumo <= 0 || dist <= 0) {
-                msg = "Valor inválido";
-            }
-            
-            setTotal(msg)
-
+            const resposta = Abastecimento(capac, consumo, dist)
+            setTotal(resposta);
+    
         } catch (err) {
-            return (err.message)
+            return (err.message);
         }
     }
 

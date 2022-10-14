@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Salario } from "../../services";
 import './index.scss'
 
 export default function SalarioLiquido() {
@@ -12,24 +13,13 @@ export default function SalarioLiquido() {
 
 
     function CalcularSalario() {
-        
-        try{
-            if (salario >= 0 && bonus >= 0 && desc >= 0) {
-            
-                let Bonus = salario / bonus;
-                let total = salario + Bonus;
-                let desconto = total - desc;
-                
-                setTotal(desconto.toFixed(1))
-            }
-            else {
-                setTotal('invalidoo')
-            }
+        try {
+            const resposta = Salario(salario, bonus, desc)
+            setTotal(resposta);
+    
+        } catch (err) {
+            return (err.message);
         }
-        catch(err) {
-            return (err.message)
-        }
-        
     }
 
 

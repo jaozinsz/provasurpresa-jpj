@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import './index.scss'
 import { useNavigate } from "react-router-dom";
+import { SSigno } from '../../services';
 
 
 export default function Signo() {
@@ -11,15 +12,13 @@ export default function Signo() {
     
 
     function Calcular() {
-        if(mes == 'setembro' && dia >= 23 || 'outubro' && dia <=22){
-            setFinal('seu signo é libra doidão')
-
+        try {
+            const resposta = SSigno(mes, dia)
+            setFinal(resposta);
+    
+        } catch (err) {
+            return (err.message);
         }
-        else{
-            setFinal('seu signo n é libra mané')
-        }
-
-      
     }
 
     useEffect(() => {

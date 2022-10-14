@@ -2,44 +2,24 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import { useNavigate } from 'react-router';
 import './index.scss'
+import { Temperatura } from '../../services';
 
 export default function Febre() {
 
-    
-
     const [temp, setTemp] = useState('');
-    const [total, setTotal] = useState('')
+    const [total, setTotal] = useState('');
 
-    function temperatura () {
+    function temperatura(){
         try {
-            let msg = ''
-            if (temp >= 41) {
-                msg = 'Hipertemia'
-            }
-
-            else if (temp >= 39.6 && temp < 41) {
-                msg = 'Febre alta'
-            }
-
-            else if (temp >= 37.5 && temp < 39.6) {
-                msg = 'Febre'
-            }
-
-            else if (temp >= 36 && temp < 37.5) {
-                msg = 'Normal'
-            }
-
-            else{
-                msg = 'Hipotermia'
-            }
-
-            setTotal(msg)
-
-            
+         const resposta = Temperatura(temp)
+         setTotal(resposta);
+ 
         } catch (err) {
-            
+             return (err.message);
         }
-    }
+     }
+
+    
 
     useEffect(() =>{
         temperatura()

@@ -2,27 +2,22 @@ import React from "react";
 import { useState, useEffect } from "react";
 import './index.scss'
 import { useNavigate } from "react-router-dom";
+import { Sorvete } from "../../services";
 
 export default function Sorveteria() {
     const navigate = useNavigate();
     const [gramas, setGramas] = useState()
-    const [ final, setFinal] = useState()
+    const [final, setFinal] = useState()
    
 
     function Calcular() {
-        let total = ''
-        
-       if( gramas <= 0){
-        alert('peso invalido')
-
-       }
-        if (gramas > 1000) {
-            total = (gramas) * 0.03
+        try {
+            const resposta = Sorvete(gramas)
+            setFinal(resposta);
+    
+        } catch (err) {
+            return (err.message);
         }
-        else{
-            total = (gramas) * 0.035
-        }
-    setFinal(total.toFixed([2]))
     }
 
     useEffect(() => {
