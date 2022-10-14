@@ -30,6 +30,8 @@ export default function CalcularIngresso(){
             msg = "O total a se pagar vai ser R$" + total;
 
         }
+
+        setTotal(msg)
        } catch (err) {
 
        }
@@ -49,23 +51,23 @@ export default function CalcularIngresso(){
             </div>
 
             <div>
-                <label>meia</label>
-                <input type="number" value={meia} onChange={e => setMeia(Number(e.target.value))} />
+                <label>inteira</label>
+                <input type="number" value={inteira} onChange={e => setInteira(Number(e.target.value))} />
             </div>
 
             <div>
-                <label>meia</label>
-                <input type="number" value={meia} onChange={e => setMeia(Number(e.target.value))} />
+                <label>dia</label>
+                <input type="text" value={dia} onChange={e => setDia(String(e.target.value))} />
             </div>
 
             <div>
-                <label>meia</label>
-                <input type="number" value={meia} onChange={e => setMeia(Number(e.target.value))} />
+                <label>nacional</label>
+                <input type="checkbox" checked={nacional} onChange={e => setNacional(Number(e.target.checked))} />
             </div>
 
             <div>
                 <label>
-                    {total}
+                   {total}
                 </label>
             </div>
 
