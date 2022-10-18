@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import './index.scss'
 
 
 
@@ -162,6 +163,48 @@ export default function Index() {
                         }
                     }}>
                     Orçamento Familiar
+                </button>
+            </div>
+            
+            <div className="div-btn-sorv">
+                <button
+                    className="btn-simple-sorv"
+                    onClick={async () => {
+                        try {
+                            navigate("/contar")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    Contar Até
+                </button>
+            </div>
+
+            <div className="div-btn-sorv">
+                <button
+                    className="btn-simple-sorv"
+                    onClick={async () => {
+                        try {
+                            navigate("/linhas")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    Linhas
+                </button>
+            </div>
+
+            <div className="div-btn-sorv">
+                <button
+                    className="btn-simple-sorv"
+                    onClick={async () => {
+                        try {
+                            navigate("/retangulo")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    Desenhar Retangulo
                 </button>
             </div>
         </main>

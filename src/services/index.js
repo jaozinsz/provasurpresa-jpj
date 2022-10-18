@@ -151,3 +151,34 @@ export function Ingresso(dia, meia, inteira, nacional){
     }
 }
 
+export function contarAte(inicio, fim) {
+    if(isNaN(inicio) || isNaN(fim))
+    throw new Error('Isso não é um número');
+
+    let x = [];
+    for(let cont = inicio; cont <=fim; cont++ ) {
+        x = [...x, cont];
+        x.push(", ")
+    } 
+    return x;
+}
+
+export function Linhas(qtd) {
+    let x =[];
+    for (let cont = 0; cont <= qtd; cont ++) {
+        x.push(" * ")
+    }
+    return x;
+}
+
+export function Retangulo(base, altura, simbolo) {
+    let retangulo = [];
+    for(let cont = 0; cont < base; cont++) {
+
+    for(let j = 0; j < altura; j++) {
+        retangulo.push(simbolo);
+    }
+        retangulo.push('+');
+    }
+    return retangulo;
+}
