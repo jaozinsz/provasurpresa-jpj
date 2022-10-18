@@ -35,10 +35,7 @@ export default function Linhass() {
             </div>
 
             <div>
-
-                
-                
-               <nbsp></nbsp> {total}
+               {total}
             </div>
 
             <button

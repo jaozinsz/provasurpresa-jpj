@@ -176,7 +176,7 @@ export function Retangulo(base, altura, simbolo) {
     for(let cont = 0; cont < base; cont++) {
 
     for(let j = 0; j < altura; j++) {
-        retangulo.push(simbolo);
+        retangulo.push(simbolo + '\n');
     }
         retangulo.push('+');
     }
