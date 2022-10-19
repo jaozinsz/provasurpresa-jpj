@@ -133,52 +133,105 @@ export function CalculoOrcamento(gastos, ganhos) {
 
 
 export function Ingresso(dia, meia, inteira, nacional){
-    let total = 0;
+    try{
+        let total = 0;
 
-    let msg = "O total a se pagar vai ser R$";
+        let msg = "O total a se pagar vai ser R$";
 
-    if(nacional === true){
-        total = (inteira + meia) * 5
-        return msg+total;
+        if(nacional === true){
+            total = (inteira + meia) * 5
+            return msg+total;
+        }
+        else if(dia === "quarta-feira" || dia === "quartafeira" || dia === "quarta feira"){
+            total = (inteira + meia) * 14.25
+            return msg+total;
+        }
+        else{
+            total = (inteira * 28.5) + (meia * 14.25);
+            return msg+total;
+        }
     }
-    else if(dia === "quarta-feira" || dia === "quartafeira" || dia === "quarta feira"){
-        total = (inteira + meia) * 14.25
-        return msg+total;
-    }
-    else{
-        total = (inteira * 28.5) + (meia * 14.25);
-        return msg+total;
+    catch (err){
+        return (err.message)
     }
 }
 
 export function contarAte(inicio, fim) {
-    if(isNaN(inicio) || isNaN(fim))
-    throw new Error('Isso não é um número');
+    try{
+        if(isNaN(inicio) || isNaN(fim))
+        throw new Error('Isso não é um número');
 
-    let x = [];
-    for(let cont = inicio; cont <=fim; cont++ ) {
-        x = [...x, cont];
-        x.push(", ")
-    } 
-    return x;
+        let x = [];
+        for(let cont = inicio; cont <=fim; cont++ ) {
+            x = [...x, cont];
+            x.push(", ")
+        } 
+        return x;
+    }
+    catch (err){
+        return (err.message)
+    }
 }
 
 export function Linhas(qtd) {
-    let x =[];
-    for (let cont = 0; cont <= qtd; cont ++) {
-        x.push(" * ")
+    try{
+        let x =[];
+        for (let cont = 0; cont <= qtd; cont ++) {
+            x.push(" * ")
+        }
+        return x;
     }
-    return x;
+    catch (err){
+        return (err.message)
+    }
 }
 
 export function Retangulo(base, altura, simbolo) {
-    let retangulo = [];
-    for(let cont = 0; cont < base; cont++) {
+    try{
+        let retangulo = [];
+        for(let cont = 0; cont < base; cont++) {
 
-    for(let j = 0; j < altura; j++) {
-        retangulo.push(simbolo + '\n');
+        for(let j = 0; j < altura; j++) {
+            retangulo.push(simbolo + '\n');
+        }
+            retangulo.push('+');
+        }
+        return retangulo;
     }
-        retangulo.push('+');
+    catch (err){
+        return (err.message)
     }
-    return retangulo;
 }
+
+
+export function CalcularCafe(alunos, litros, mili){
+    try{
+        let y = litros;
+        let x = (alunos * mili) / 1000;
+
+       
+        while(x > y){
+            return y+=litros;
+        }
+        return y;
+    }
+    catch (err){
+        return (err.message)
+    }
+}
+/* 
+export function CalcularCafe(alunos, litros, mili){
+    try{
+        let y = litros * 1000;
+        let x = alunos * mili;
+       
+        while(x > y){
+            return litros+=litros;
+        }
+            return y/1000;
+    }
+    catch (err){
+        return (err.message)
+    }
+}
+*/

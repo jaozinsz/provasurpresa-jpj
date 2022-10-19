@@ -207,6 +207,20 @@ export default function Index() {
                     Desenhar Retangulo
                 </button>
             </div>
+
+            <div className="div-btn-signo">
+                    <button
+                        className="btn-simple-signo"
+                        onClick={async () => {
+                            try {
+                                navigate("/cafe")
+                            } catch (err) {
+
+                            }
+                        }}>
+                        café dos alunos
+                    </button>
+                </div>
         </main>
 
     );
