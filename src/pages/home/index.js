@@ -207,6 +207,20 @@ export default function Index() {
                     Desenhar Retangulo
                 </button>
             </div>
+
+            <div className="div-btn-sorv">
+                <button
+                    className="btn-simple-sorv"
+                    onClick={async () => {
+                        try {
+                            navigate("/JurosComposto")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    Juros Compostos
+                </button>
+            </div>
         </main>
 
     );

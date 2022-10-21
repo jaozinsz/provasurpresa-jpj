@@ -172,13 +172,24 @@ export function Linhas(qtd) {
 }
 
 export function Retangulo(base, altura, simbolo) {
-    let retangulo = [];
-    for(let cont = 0; cont < base; cont++) {
+        let array = [];
+        for(let i = 0; i < altura; i++){
+            array = []
+        }
+    
+}
 
-    for(let j = 0; j < altura; j++) {
-        retangulo.push(simbolo + '\n');
+export function JurosCompostos (entrada, valor, taxa, periodo) {
+    if(entrada, valor, taxa, periodo === undefined || entrada, valor, taxa, periodo === isNaN){
+        throw new Error("insira valores válidos")
     }
-        retangulo.push('+');
-    }
-    return retangulo;
+
+    let capital = valor - entrada
+    let montante = capital * ((1 + (taxa / 100)) ** periodo)
+    let juros = montante - capital
+    let vlparcela = montante / (periodo * 12)
+    let array = ['Montante: ' + montante.toFixed([2]),
+    'Juros: ' + juros.toFixed([2]),
+    'Valor da parcela: ' + vlparcela.toFixed([2])]
+    return array
 }
