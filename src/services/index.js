@@ -133,42 +133,57 @@ export function CalculoOrcamento(gastos, ganhos) {
 
 
 export function Ingresso(dia, meia, inteira, nacional){
-    let total = 0;
+    try{
+        let total = 0;
 
-    let msg = "O total a se pagar vai ser R$";
+        let msg = "O total a se pagar vai ser R$";
 
-    if(nacional === true){
-        total = (inteira + meia) * 5
-        return msg+total;
+        if(nacional === true){
+            total = (inteira + meia) * 5
+            return msg+total;
+        }
+        else if(dia === "quarta-feira" || dia === "quartafeira" || dia === "quarta feira"){
+            total = (inteira + meia) * 14.25
+            return msg+total;
+        }
+        else{
+            total = (inteira * 28.5) + (meia * 14.25);
+            return msg+total;
+        }
     }
-    else if(dia === "quarta-feira" || dia === "quartafeira" || dia === "quarta feira"){
-        total = (inteira + meia) * 14.25
-        return msg+total;
-    }
-    else{
-        total = (inteira * 28.5) + (meia * 14.25);
-        return msg+total;
+    catch (err){
+        return (err.message)
     }
 }
 
 export function contarAte(inicio, fim) {
-    if(isNaN(inicio) || isNaN(fim))
-    throw new Error('Isso não é um número');
+    try{
+        if(isNaN(inicio) || isNaN(fim))
+        throw new Error('Isso não é um número');
 
-    let x = [];
-    for(let cont = inicio; cont <=fim; cont++ ) {
-        x = [...x, cont];
-        x.push(", ")
-    } 
-    return x;
+        let x = [];
+        for(let cont = inicio; cont <=fim; cont++ ) {
+            x = [...x, cont];
+            x.push(", ")
+        } 
+        return x;
+    }
+    catch (err){
+        return (err.message)
+    }
 }
 
 export function Linhas(qtd) {
-    let x =[];
-    for (let cont = 0; cont <= qtd; cont ++) {
-        x.push(" * ")
+    try{
+        let x =[];
+        for (let cont = 0; cont <= qtd; cont ++) {
+            x.push(" * ")
+        }
+        return x;
     }
-    return x;
+    catch (err){
+        return (err.message)
+    }
 }
 
 export function Retangulo(base, altura, simbolo) {

@@ -11,6 +11,7 @@ import Ingresso from './pages/ingresso'
 import ContarAtee from './pages/numerosnaturais'
 import Linhas from './pages/linhas'
 import Retanguloo from './pages/retangulo'
+import Cafe from './pages/cafe'
 import JurosCompostos from './pages/Juros'
 
 
@@ -35,7 +36,8 @@ export default function Index() {
 
                 <Route path='/linhas' element={<Linhas/>}></Route> 
                 <Route path='/retangulo' element={<Retanguloo/>}></Route>
-                
+                <Route path='/cafe' element={<Cafe/>}></Route>
+
                 <Route path='/juros' element={<JurosCompostos/>}></Route>
             </Routes>
         
