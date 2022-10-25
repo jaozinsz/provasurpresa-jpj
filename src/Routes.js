@@ -13,6 +13,7 @@ import Linhas from './pages/linhas'
 import Retanguloo from './pages/retangulo'
 import Cafe from './pages/cafe'
 import JurosCompostos from './pages/Juros'
+import Aluno from './pages/AlunosMedia'
 
 
 export default function Index() {
@@ -39,6 +40,7 @@ export default function Index() {
                 <Route path='/cafe' element={<Cafe/>}></Route>
 
                 <Route path='/juros' element={<JurosCompostos/>}></Route>
+                <Route path='/aluno' element={<Aluno/>}></Route>
             </Routes>
         
         </BrowserRouter>

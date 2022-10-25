@@ -208,3 +208,29 @@ export function JurosCompostos (entrada, valor, taxa, periodo) {
     'Valor da parcela: ' + vlparcela.toFixed([2])]
     return array
 }
+
+export function CalcularCafe(alunos, litros, mili){
+    try{
+        let y = litros * 1000;
+        let x = alunos * mili;
+       
+        while(x > y){
+            return litros+=litros;
+        }
+            return y/1000;
+    }
+    catch (err){
+        return (err.message)
+    }
+}
+
+export function CalcularAlunos(ultimoAluno){
+    if(isNaN(ultimoAluno)) throw new Error('Isso não é um número!');
+    if(!ultimoAluno)
+        throw new Error('Coloque o valor mediocre');
+    let array = [];
+    for(let i = 1; i<=ultimoAluno; i++){
+        array = [...array, i]
+    }
+    return array;
+}

@@ -221,6 +221,34 @@ export default function Index() {
                     Juros Compostos
                 </button>
             </div>
+
+            <div className="div-btn-sorv">
+                <button
+                    className="btn-simple-sorv"
+                    onClick={async () => {
+                        try {
+                            navigate("/cafe")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    Café :3
+                </button>
+            </div>
+
+            <div className="div-btn-sorv">
+                <button
+                    className="btn-simple-sorv"
+                    onClick={async () => {
+                        try {
+                            navigate("/aluno")
+                        } catch (err) {
+
+                        }
+                    }}>
+                    ALunoo
+                </button>
+            </div>
         </main>
 
     );
