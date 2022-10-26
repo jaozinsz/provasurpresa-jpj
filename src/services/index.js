@@ -224,13 +224,41 @@ export function CalcularCafe(alunos, litros, mili){
     }
 }
 
-export function CalcularAlunos(ultimoAluno){
-    if(isNaN(ultimoAluno)) throw new Error('Isso não é um número!');
-    if(!ultimoAluno)
-        throw new Error('Coloque o valor mediocre');
-    let array = [];
-    for(let i = 1; i<=ultimoAluno; i++){
-        array = [...array, i]
+export function criarArray(tamanho) {
+    let notas = [];
+    for (let volta = 1; volta <= tamanho; volta++) {
+        notas.push(0);
     }
-    return array;
+    return notas;
+}
+
+export function calcMedia(notas) {
+    let soma = 0;
+    for (let volta = 0; volta < notas.length; volta++) {
+        soma = soma + notas[volta];
+    }
+    let m = soma / notas.length;
+    return m;
+}
+
+export function calcMaior(notas) {
+    let m = 0;
+    for (let volta = 0; volta < notas.length; volta++) {
+        if (notas[volta] > m) {
+            m = notas[volta];
+        }
+    }
+    
+    return m;
+}
+
+export function calcMenor(notas) {
+    let m = 11;
+    for (let volta = 0; volta < notas.length; volta++) {
+        if (notas[volta] < m) {
+            m = notas[volta];
+        }
+    }
+    
+    return m;
 }

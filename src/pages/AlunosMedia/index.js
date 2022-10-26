@@ -1,64 +1,68 @@
-import { useState, useEffect } from 'react';
-import React from 'react';
-import { useNavigate } from 'react-router';
-import './index.scss'
-import { CalcularAlunos } from '../../services';
+import { useState } from 'react';
+import './index.scss';
+import { calcMaior, calcMedia, calcMenor, criarArray } from '../../services';
 
-export default function MediaAluno() {
+function AlunoMedia() {
+  const [qtd, setQtd] = useState(0);
+  const [notasAlunos, setNotasAlunos] = useState([])
 
-    const [alunos, setAlunos] = useState([]);
-    const [media, setMedia] = useState([]);
+  const [media, setMedia] = useState(0);
+  const [maior, setMaior] = useState(0);
+  const [menor, setMenor] = useState(0);
 
-    const [total, setTotal] = useState('')
 
-    function CalcularAlunoss() {
-        try {
-            const resposta = CalcularAlunos(alunos);
-            setTotal(resposta);
-    
-        } catch (err) {
-            return (err.message);
-        }
-    }
+  function okQtd() {
+    const x = criarArray(qtd);
+    setNotasAlunos(x);
+  }
 
-    // useEffect(() =>{
-      //  CalcularAlunoss()
-    //}, [alunos])
-    const navigate = useNavigate();
+  function alterar(pos, novoValor) {
+    notasAlunos[pos] = Number(novoValor);
+    setNotasAlunos([...notasAlunos]);
+  }
 
-    return (
-        <main>
-            <h1>Calcular Paradas de Abastecimento</h1>
+  function calcular() {
+    const a = calcMedia(notasAlunos);
+    const b = calcMaior(notasAlunos);
+    const c = calcMenor(notasAlunos);
 
-            <div>
-                <label> Qtd Alunos </label>
-                <input type="number" value={alunos} onChange={e => setAlunos(e.target.value)} />
-                <button onClick={CalcularAlunoss}>ok</button>
-            </div>
+    setMedia(a);
+    setMaior(b);
+    setMenor(c);
+  }
 
-            <div>
-                {alunos.map(item =>{
-                    return <input value={item[media]} onChange={e => setMedia(e.target.value)}/>
-                })}
-            </div>
 
-            <div>
-                <label>
-                    {total}
-                </label>
-            </div>
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+        <div>
+          Qtd. Alunos: <input type='text' value={qtd} onChange={e => setQtd(e.target.value)} />
+          <button onClick={okQtd}> ok </button>
+        </div>
 
-            <button
-                className="btn-simple-acai"
-                onClick={async () => {
-                    try {
-                        navigate("/")
-                    } catch (err) {
+        {notasAlunos.map((item, pos) => 
+          <div>
+            Aluno {pos+1}: <input type='text' value={notasAlunos[pos]} onChange={e => alterar(pos, e.target.value)} />
+          </div>  
+        )}
 
-                    }
-                }}>
-                Voltar pra home
-            </button>
-        </main>
-    )
+
+        <button onClick={calcular}> Calcular </button>
+        
+        <div>
+          Média: {media}
+        </div>
+        <div>
+          Maior: {maior}
+        </div>
+        <div>
+          Menor: {menor}
+        </div>
+        
+      </header>
+    </div>
+  );
 }
+
+export default AlunoMedia;
